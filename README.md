@@ -7,6 +7,7 @@ The wc command displays the number of lines, words, and bytes in a specified tex
 However, TeaCat will also display the contents of the file.
 
 ## Usage
+
 TeaCat [FILEs...|DIRs...]
     -b, --byte                  Prints the number of bytes in each input file.
     -c, --character             Prints the number of characters in each input file.
