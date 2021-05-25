@@ -7,7 +7,8 @@ Implementation of additional functions to wc
 ## Description
 This software adds functionality to the wc command.
 The wc command displays the number of lines, words, and bytes in a specified text file.
-However, TeaCat will also display the contents of the file.
+However, TeaCat will also display the contents of the file. 
+It is a combination of the cat command and the wc command.
 
 ## Usage
 ```
