@@ -17,5 +17,5 @@ TeaCat [FILEs...|DIRs...]
     -lp,--lineprint             prints the all word and line number in each input file.
     -h, --help                  Prints this message. 
 ARGUMENTS
-    FILEs...                    Specifies counting targets. TeaCat accepts zip/tar/tar.gz/ files.
+    FILEs...                    Specifies targets. TeaCat accepts zip/tar/tar.gz/ files.
     DIRs...                     Files in the given directory are as the input files.
