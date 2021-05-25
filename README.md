@@ -1,6 +1,9 @@
 # TeaCat
 Implementation of additional functions to wc
 
+## icon
+![TeaCat](cartoon-little-cat-with-tea-cup.jpg)
+
 ## Description
 This software adds functionality to the wc command.
 The wc command displays the number of lines, words, and bytes in a specified text file.
