@@ -1,7 +1,5 @@
 # TeaCat
 Implementation of additional functions to wc
-
-## icon
 ![TeaCat](cartoon-little-cat-with-tea-cup.jpg)
 
 ## Description
