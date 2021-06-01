@@ -1,3 +1,6 @@
+[![CI](https://github.com/akhiroky/TeaCat/actions/workflows/ci.yml/badge.svg)](https://github.com/akhiroky/TeaCat/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-CC-0-green.svg)](https://github.com/akhiroky/TeaCat/blob/main/LICENSE)
+
 # TeaCat
 Implementation of additional functions to wc
 
