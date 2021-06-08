@@ -1,4 +1,4 @@
-[![CI](https://github.com/akhiroky/TeaCat/actions/workflows/ci.yml/badge.svg)](https://github.com/akhiroky/TeaCat/actions/workflows/ci.yml)
+[![build](https://github.com/akhiroky/TeaCat/actions/workflows/ci.yml/badge.svg)](https://github.com/akhiroky/TeaCat/actions/workflows/build.yml)
 [![License](http://img.shields.io/badge/license-CC0-green.svg)](https://github.com/akhiroky/TeaCat/blob/main/LICENSE)
 
 # TeaCat
