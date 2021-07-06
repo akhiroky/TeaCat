@@ -9,7 +9,7 @@
 # TeaCat
 Implementation of additional functions to wc
 
-![TeaCat](/images/teacat/cartoon-little-cat-with-tea-cup.jpg)
+![TeaCat](cartoon-little-cat-with-tea-cup.jpg)
 
 ## Description
 This software adds functionality to the wc command.
