@@ -1,10 +1,15 @@
 [![build](https://github.com/akhiroky/TeaCat/actions/workflows/build.yml/badge.svg)](https://github.com/akhiroky/TeaCat/actions/workflows/build.yml)
 [![License](http://img.shields.io/badge/license-CC0-green.svg)](https://github.com/akhiroky/TeaCat/blob/main/LICENSE)
+[![Coverage Status](https://coveralls.io/repos/github/akhiroky/TeaCat/badge.svg?branch=main)](https://coveralls.io/github/akhiroky/TeaCat?branch=main)
+[![Go Report Card](https://goreportcard.com/badge/github.com/akhiroky/TeaCat)](https://goreportcard.com/report/github.com/akhiroky/TeaCat)
+[![codebeat badge](https://codebeat.co/badges/501f4324-3296-4c48-ba93-08b2a8459067)](https://codebeat.co/projects/github-com-akhiroky-teacat-main)
 
+
+[![Docker](https://img.shields.io/badge/Docker-hirokiiii%2Fteacat%3A1.0.0-green?logo=docker)](https://hub.docker.com/repository/docker/hirokiiii/teacat)
 # TeaCat
 Implementation of additional functions to wc
 
-![TeaCat](cartoon-little-cat-with-tea-cup.jpg)
+![TeaCat](/images/teacat/cartoon-little-cat-with-tea-cup.jpg)
 
 ## Description
 This software adds functionality to the wc command.
@@ -14,7 +19,7 @@ It is a combination of the cat command and the wc command.
 
 ## Usage
 ```
-TeaCat [FILEs...|DIRs...]
+TeaCat [Options] <FILEs...|DIRs...>
     -b, --byte                  Prints the number of bytes in each input file.
     -c, --character             Prints the number of characters in each input file.
     -l, --line                  Prints the number of lines in each input file.
