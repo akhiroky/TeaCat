@@ -6,6 +6,7 @@
 
 
 [![Docker](https://img.shields.io/badge/Docker-hirokiiii%2Fteacat%3A1.0.0-green?logo=docker)](https://hub.docker.com/repository/docker/hirokiiii/teacat)
+[![DOI](https://zenodo.org/badge/369699051.svg)](https://zenodo.org/badge/latestdoi/369699051)
 # TeaCat
 Implementation of additional functions to wc
 
