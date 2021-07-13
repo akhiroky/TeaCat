@@ -1,5 +1,5 @@
 GO := go
-NAME := TeaCat
+NAME := teacat
 VERSION := 1.0.0
 DIST := $(NAME)-$(VERSION)
 
@@ -24,8 +24,8 @@ dist: all
 	@$(call __create_dist,windows,amd64,.exe)
 	@$(call __create_dist,linux,amd64,)
 
-build: main.go
-	go build -o $(NAME) -v main.go
+build: teacat.go
+	go build -o $(NAME) -v teacat.go args.go
 
 clean:
 	@rm -f nml *~
