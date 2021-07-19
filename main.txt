@@ -129,6 +129,7 @@ func filecat(opts FlagOptions) int{
 func goMain(args []string) int {
 	opts := parseFlagOptions()
 	filenames := flag.Args()
+	fmt.Println(filenames)
 
 	var totalCount Counter
 
