@@ -14,15 +14,14 @@ func cat(opts *options, filenames []string) int {
 		if err != nil {
 			fmt.Println(err)
 			return 1
-		} else {
-			scanner := bufio.NewScanner(fp)
-			for ; scanner.Scan(); i++ {
-				if opts.cat.linePrintFlag {
-					//オプションがある場合
-					fmt.Printf("%v: ", i)
-				}
-				fmt.Println(scanner.Text())
+		}
+		scanner := bufio.NewScanner(fp)
+		for ; scanner.Scan(); i++ {
+			if opts.cat.linePrintFlag {
+				//オプションがある場合
+				fmt.Printf("%v: ", i)
 			}
+			fmt.Println(scanner.Text())
 		}
 	}
 	return 0
