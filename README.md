@@ -20,7 +20,7 @@ It is a combination of the cat command and the wc command.
 
 ## Usage
 ```
-TeaCat [Options] <FILEs...|DIRs...>
+TeaCat [Options]... [FILEs...|DIRs...]
     -b, --byte                  Prints the number of bytes in each input file.
     -c, --character             Prints the number of characters in each input file.
     -l, --line                  Prints the number of lines in each input file.
