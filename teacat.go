@@ -15,7 +15,7 @@ func perform(opts *options, filenames[] string) int {
 		return cat(opts, filenames)
 	}
 
-	return 0
+	return 1
 }
 
 func helpMessage(originalProgramName string) string {

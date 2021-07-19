@@ -17,10 +17,7 @@ type counter struct {
 }
 
 func (c *counter) countShow(r io.Reader, opts *options) (bool, error) {
-	b, err := ioutil.ReadAll(r)
-	if err != nil {
-		return false, err
-	}
+	b, _ := ioutil.ReadAll(r)
 
 	if opts.wc.pBytesFlag {
 		c.bytes = len(b)
@@ -51,11 +48,7 @@ func wordCount(opts *options, filenames[] string) int {
 			continue
 		}
 
-		_, err = c.countShow(fp, opts)
-		if err != nil {
-			fmt.Println(err)
-			continue
-		}
+		c.countShow(fp, opts)
 
 		if opts.wc.pCharsFlag {
 			data, _ := ioutil.ReadFile(filename)
