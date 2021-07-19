@@ -1,7 +1,7 @@
 [![build](https://github.com/akhiroky/TeaCat/actions/workflows/build.yml/badge.svg)](https://github.com/akhiroky/TeaCat/actions/workflows/build.yml)
 [![License](http://img.shields.io/badge/license-CC0-green.svg)](https://github.com/akhiroky/TeaCat/blob/main/LICENSE)
 [![Coverage Status](https://coveralls.io/repos/github/akhiroky/TeaCat/badge.svg?branch=main)](https://coveralls.io/github/akhiroky/TeaCat?branch=main)
-[![Go Report Card](https://goreportcard.com/badge/github.com/akhiroky/TeaCat)](https://goreportcard.com/report/github.com/akhiroky/TeaCat)
+[![Go Report Card](https://img.shields.io/badge/go%20report-A+-brightgreen.svg?style=flat)](https://goreportcard.com/report/github.com/akhiroky/TeaCat)
 [![codebeat badge](https://codebeat.co/badges/501f4324-3296-4c48-ba93-08b2a8459067)](https://codebeat.co/projects/github-com-akhiroky-teacat-main)
 
 [![Docker](https://img.shields.io/badge/Docker-hirokiiii%2Fteacat%3A1.0.0-green?logo=docker)](https://hub.docker.com/repository/docker/hirokiiii/teacat)
