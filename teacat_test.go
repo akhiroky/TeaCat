@@ -2,9 +2,19 @@ package main
 
 import "testing"
 
-func TestMain(t *testing.T) {
-	status := goMain([]string{"-h"})
-	if status != 0 {
-		t.Errorf("status code wont 0, but got %d", status)
+func TestParseArgs(t *testing.T) {
+	testdata := []struct {
+		giveArgs   []string
+		wontStatus int
+	}{
+		{[]string{"teacat", "-h"}, 0},
+		{[]string{"teacat"}, 0}, // required parameters missing
+		{[]string{"teacat", "-a"}, 1},
+	}
+	for _, td := range testdata {
+		gotStatus := goMain(td.giveArgs)
+		if gotStatus != td.wontStatus {
+			t.Errorf("goMain(%v) status code did not match, wont %d, got %d", td.giveArgs, td.wontStatus, gotStatus)
+		}
 	}
 }
