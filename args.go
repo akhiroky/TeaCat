@@ -14,19 +14,19 @@ type wcOpts struct {
 }
 
 type catOpts struct {
-	printFlag bool
+	printFlag     bool
 	linePrintFlag bool
 }
 
 type inoutputOpts struct {
 	helpFlag bool
-	args []string
+	args     []string
 }
 
 type options struct {
-	wc *wcOpts
-	cat *catOpts
-	inoutput  *inoutputOpts
+	wc       *wcOpts
+	cat      *catOpts
+	inoutput *inoutputOpts
 }
 
 func parseArgs(args []string) (*options, error) {

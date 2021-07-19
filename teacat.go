@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 )
 
-func perform(opts *options, filenames[] string) int {
+func perform(opts *options, filenames []string) int {
 	if opts.wc.pBytesFlag || opts.wc.pLinesFlag || opts.wc.pCharsFlag || opts.wc.pWordsFlag {
 		return wordCount(opts, filenames)
 	}
@@ -33,7 +33,7 @@ ARGUMENTS
 	DIRs...                     Files in the given directory are as the input files.`, programName)
 }
 
-func goMain(args[] string) int {
+func goMain(args []string) int {
 	opts, err := parseArgs(args)
 
 	if err != nil {
@@ -42,7 +42,7 @@ func goMain(args[] string) int {
 		return 1
 	}
 
-	if opts.inoutput.helpFlag || len(opts.inoutput.args) == 0{
+	if opts.inoutput.helpFlag || len(opts.inoutput.args) == 0 {
 		fmt.Println(helpMessage(args[0]))
 		return 0
 	}
@@ -51,6 +51,6 @@ func goMain(args[] string) int {
 }
 
 func main() {
-	status:= goMain(os.Args)
+	status := goMain(os.Args)
 	os.Exit(status)
 }

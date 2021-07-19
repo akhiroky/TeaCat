@@ -1,11 +1,11 @@
 package main
 
-import(
+import (
+	"bytes"
 	"fmt"
 	"io"
-	"bytes"
-	"os"
 	"io/ioutil"
+	"os"
 	"unicode/utf8"
 )
 
@@ -37,7 +37,7 @@ func (c *counter) countShow(r io.Reader, opts *options) (bool, error) {
 	return true, nil
 }
 
-func wordCount(opts *options, filenames[] string) int {
+func wordCount(opts *options, filenames []string) int {
 
 	for _, filename := range filenames {
 		var c counter

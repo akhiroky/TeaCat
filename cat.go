@@ -2,11 +2,11 @@ package main
 
 import (
 	"bufio"
-	"os"
 	"fmt"
+	"os"
 )
 
-func cat(opts *options, filenames[] string) int{
+func cat(opts *options, filenames []string) int {
 	i := 1
 
 	for _, filename := range filenames {
