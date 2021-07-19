@@ -52,8 +52,7 @@ func parseFlagOptions() FlagOptions {
 	return opts
 }
 
-// Count is count of elements
-func (c *Counter) Count(r io.Reader) (bool, error) {
+func (c *Counter) count(r io.Reader) (bool, error) {
 	b, err := ioutil.ReadAll(r)
 	if err != nil {
 		return false, err
@@ -80,7 +79,7 @@ ARGUMENTS
 }
 
 // Show is output of elements
-func (c Counter) Show(opts FlagOptions, filename string) {
+func (c Counter) show(opts FlagOptions, filename string) {
 	fmt.Printf("File name is %s\n", filename)
 	if opts.printLines {
 		fmt.Printf("%7d lines", c.lines)
@@ -98,7 +97,7 @@ func (c Counter) Show(opts FlagOptions, filename string) {
 }
 
 // Add is add of elements
-func (c *Counter) Add(src Counter) {
+func (c *Counter) add(src Counter) {
 	c.lines += src.lines
 	c.bytes += src.bytes
 	c.words += src.words
@@ -130,6 +129,7 @@ func filecat(opts FlagOptions) int{
 func goMain(args []string) int {
 	opts := parseFlagOptions()
 	filenames := flag.Args()
+	fmt.Println(filenames)
 
 	var totalCount Counter
 
@@ -140,12 +140,12 @@ func goMain(args []string) int {
 
 	if len(filenames) == 0 {
 		var c Counter
-		_, err := c.Count(os.Stdin)
+		_, err := c.count(os.Stdin)
 		if err != nil {
 			fmt.Println(err)
 			return 1
 		}
-		c.Show(opts, "")
+		c.show(opts, "")
 	}
 
 	if opts.printCat || opts.printNum {
@@ -164,18 +164,18 @@ func goMain(args []string) int {
 			fmt.Println(err)
 			continue
 		}
-		_, err = c.Count(fp)
+		_, err = c.count(fp)
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
-		totalCount.Add(c)
-		c.Show(opts, filename)
+		totalCount.add(c)
+		c.show(opts, filename)
 		fp.Close()
 	}
 
 	if len(filenames) > 1 {
-		totalCount.Show(opts, "total")
+		totalCount.show(opts, "total")
 	}
 
 	return 0

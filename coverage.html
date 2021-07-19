@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>TeaCat: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">TeaCat/args.go (93.8%)</option>
+				
+				<option value="file1">TeaCat/cat.go (100.0%)</option>
+				
+				<option value="file2">TeaCat/teacat.go (88.9%)</option>
+				
+				<option value="file3">TeaCat/wc.go (100.0%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">no coverage</span>
+				<span class="cov1">low coverage</span>
+				<span class="cov2">*</span>
+				<span class="cov3">*</span>
+				<span class="cov4">*</span>
+				<span class="cov5">*</span>
+				<span class="cov6">*</span>
+				<span class="cov7">*</span>
+				<span class="cov8">*</span>
+				<span class="cov9">*</span>
+				<span class="cov10">high coverage</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package main
+
+import (
+        "fmt"
+
+        flag "github.com/spf13/pflag"
+)
+
+type wcOpts struct {
+        pLinesFlag bool
+        pBytesFlag bool
+        pWordsFlag bool
+        pCharsFlag bool
+}
+
+type catOpts struct {
+        printFlag bool
+        linePrintFlag bool
+}
+
+type inoutputOpts struct {
+        helpFlag bool
+        args []string
+}
+
+type options struct {
+        wc *wcOpts
+        cat *catOpts
+        inoutput  *inoutputOpts
+}
+
+func parseArgs(args []string) (*options, error) <span class="cov10" title="11">{
+        opts := &amp;options{wc: &amp;wcOpts{}, cat: &amp;catOpts{}, inoutput: &amp;inoutputOpts{}}
+
+        flags := flag.NewFlagSet("teacat", flag.ContinueOnError)
+        flags.Usage = func() </span><span class="cov0" title="0">{ fmt.Println(helpMessage(args[0])) }</span>
+        <span class="cov10" title="11">flags.BoolVarP(&amp;opts.wc.pLinesFlag, "lines", "l", false, "prints of line count")
+        flags.BoolVarP(&amp;opts.wc.pBytesFlag, "bytes", "b", false, "prints of byte count")
+        flags.BoolVarP(&amp;opts.wc.pWordsFlag, "words", "w", false, "prints of word count")
+        flags.BoolVarP(&amp;opts.wc.pCharsFlag, "chars", "c", false, "prints of char count")
+        flags.BoolVarP(&amp;opts.cat.printFlag, "print", "p", false, "prints all contents")
+        flags.BoolVarP(&amp;opts.cat.linePrintFlag, "lineprint", "n", false, "prints all contents and line numbers")
+        flags.BoolVarP(&amp;opts.inoutput.helpFlag, "help", "h", false, "prints this message")
+
+        if err := flags.Parse(args); err != nil </span><span class="cov1" title="1">{
+                return nil, err
+        }</span>
+
+        <span class="cov9" title="10">opts.inoutput.args = flags.Args()[1:]
+        fmt.Println(opts.inoutput.args)
+
+        return opts, nil</span>
+}</pre>
+		
+		<pre class="file" id="file1" style="display: none">package main
+
+import (
+        "bufio"
+        "os"
+        "fmt"
+)
+
+func cat(opts *options, filenames[] string) int<span class="cov2" title="2">{
+        i := 1
+
+        for _, filename := range filenames </span><span class="cov2" title="2">{
+                fp, err := os.Open(filename)
+                if err != nil </span><span class="cov1" title="1">{
+                        fmt.Println(err)
+                        return 1
+                }</span> else<span class="cov1" title="1"> {
+                        scanner := bufio.NewScanner(fp)
+                        for ; scanner.Scan(); i++ </span><span class="cov10" title="56">{
+                                if opts.cat.linePrintFlag </span><span class="cov10" title="56">{
+                                        //オプションがある場合
+                                        fmt.Printf("%v: ", i)
+                                }</span>
+                                <span class="cov10" title="56">fmt.Println(scanner.Text())</span>
+                        }
+                }
+        }
+        <span class="cov1" title="1">return 0</span>
+}</pre>
+		
+		<pre class="file" id="file2" style="display: none">package main
+
+import (
+        "fmt"
+        "os"
+        "path/filepath"
+)
+
+func perform(opts *options, filenames[] string) int <span class="cov8" title="8">{
+        if opts.wc.pBytesFlag || opts.wc.pLinesFlag || opts.wc.pCharsFlag || opts.wc.pWordsFlag </span><span class="cov7" title="5">{
+                return wordCount(opts, filenames)
+        }</span>
+
+        <span class="cov5" title="3">if opts.cat.printFlag || opts.cat.linePrintFlag </span><span class="cov3" title="2">{
+                return cat(opts, filenames)
+        }</span>
+
+        <span class="cov1" title="1">return 1</span>
+}
+
+func helpMessage(originalProgramName string) string <span class="cov5" title="3">{
+        programName := filepath.Base(originalProgramName)
+        return fmt.Sprintf(`%s [OPTIONS] &lt;FILEs...|DIRs...&gt;
+        -b, --byte                  Prints the number of bytes in each input file.
+        -c, --character             Prints the number of characters in each input file.
+        -l, --line                  Prints the number of lines in each input file.
+        -w, --word                  Prints the number of words in each input file.
+        -p, --print                 Prints the all words in each input file.
+        -n, --lineprint             prints the all words and line number in each input file.
+        -h, --help                  Prints this message.
+ARGUMENTS
+        FILEs...                    Specifies targets. TeaCat accepts zip/tar/tar.gz/ files.
+        DIRs...                     Files in the given directory are as the input files.`, programName)
+}</span>
+
+func goMain(args[] string) int <span class="cov10" title="11">{
+        opts, err := parseArgs(args)
+
+        if err != nil </span><span class="cov1" title="1">{
+                fmt.Printf("%s: %s\n", filepath.Base(args[0]), err.Error())
+                fmt.Println(helpMessage(args[0]))
+                return 1
+        }</span>
+
+        <span class="cov9" title="10">if opts.inoutput.helpFlag || len(opts.inoutput.args) == 0</span><span class="cov3" title="2">{
+                fmt.Println(helpMessage(args[0]))
+                return 0
+        }</span>
+
+        <span class="cov8" title="8">return perform(opts, opts.inoutput.args)</span>
+}
+
+func main() <span class="cov0" title="0">{
+        status:= goMain(os.Args)
+        os.Exit(status)
+}</pre>
+		
+		<pre class="file" id="file3" style="display: none">package main
+
+import(
+        "fmt"
+        "io"
+        "bytes"
+        "os"
+        "io/ioutil"
+        "unicode/utf8"
+)
+
+type counter struct {
+        lines int
+        words int
+        bytes int
+        chars int
+}
+
+func (c *counter) countShow(r io.Reader, opts *options) (bool, error) <span class="cov8" title="4">{
+        b, _ := ioutil.ReadAll(r)
+
+        if opts.wc.pBytesFlag </span><span class="cov1" title="1">{
+                c.bytes = len(b)
+                fmt.Printf("%7d bytes", c.bytes)
+        }</span>
+
+        <span class="cov8" title="4">if opts.wc.pLinesFlag </span><span class="cov1" title="1">{
+                c.lines = bytes.Count(b, []byte{'\n'})
+                fmt.Printf("%7d lines", c.lines)
+        }</span>
+
+        <span class="cov8" title="4">if opts.wc.pWordsFlag </span><span class="cov1" title="1">{
+                c.words = len(bytes.Fields(b))
+                fmt.Printf("%7d words", c.words)
+        }</span>
+
+        <span class="cov8" title="4">return true, nil</span>
+}
+
+func wordCount(opts *options, filenames[] string) int <span class="cov10" title="5">{
+
+        for _, filename := range filenames </span><span class="cov10" title="5">{
+                var c counter
+
+                fp, err := os.Open(filename)
+                if err != nil </span><span class="cov1" title="1">{
+                        fmt.Println(err)
+                        continue</span>
+                }
+
+                <span class="cov8" title="4">c.countShow(fp, opts)
+
+                if opts.wc.pCharsFlag </span><span class="cov1" title="1">{
+                        data, _ := ioutil.ReadFile(filename)
+                        c.chars = utf8.RuneCountInString(string(data))
+                        fmt.Printf("%7d chars", c.chars)
+                }</span>
+
+                <span class="cov8" title="4">fp.Close()</span>
+        }
+
+        <span class="cov10" title="5">return 0</span>
+}</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>
