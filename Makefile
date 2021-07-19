@@ -25,7 +25,7 @@ dist: all
 	@$(call __create_dist,linux,amd64,)
 
 build: teacat.go
-	go build -o $(NAME) -v teacat.go args.go
+	go build -o $(NAME) -v teacat.go args.go wc.go cat.go
 
 clean:
 	@rm -f nml *~
