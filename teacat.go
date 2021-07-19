@@ -20,7 +20,7 @@ func perform(opts *options, filenames[] string) int {
 
 func helpMessage(originalProgramName string) string {
 	programName := filepath.Base(originalProgramName)
-	return fmt.Sprintf(`%s [OPTIONS] <FILEs...|DIRs...>
+	return fmt.Sprintf(`%s [OPTIONS]... [FILEs...|DIRs...]
 	-b, --byte                  Prints the number of bytes in each input file.
 	-c, --character             Prints the number of characters in each input file.
 	-l, --line                  Prints the number of lines in each input file.
