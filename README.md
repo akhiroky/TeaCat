@@ -4,12 +4,12 @@
 [![Go Report Card](https://img.shields.io/badge/go%20report-A+-brightgreen.svg?style=flat)](https://goreportcard.com/report/github.com/akhiroky/TeaCat)
 [![codebeat badge](https://codebeat.co/badges/501f4324-3296-4c48-ba93-08b2a8459067)](https://codebeat.co/projects/github-com-akhiroky-teacat-main)
 
-[![Docker](https://img.shields.io/badge/Docker-hirokiiii%2Fteacat%3A1.0.0-green?logo=docker)](https://hub.docker.com/repository/docker/hirokiiii/teacat)
+[![Docker](https://img.shields.io/badge/Docker-hirokiiii%2Fteacat%3A1.0.0-alpha-green?logo=docker)](https://hub.docker.com/repository/docker/hirokiiii/teacat)
 [![DOI](https://zenodo.org/badge/369699051.svg)](https://zenodo.org/badge/latestdoi/369699051)
 # TeaCat
 Implementation of additional functions to wc
 
-![TeaCat](cartoon-little-cat-with-tea-cup.jpg)
+![TeaCat](./images/cartoon-little-cat-with-tea-cup.jpg)
 
 ## Description
 This software adds functionality to the wc command.
