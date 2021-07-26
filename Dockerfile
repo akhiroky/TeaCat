@@ -1,6 +1,6 @@
 FROM alpine:3.10.1
 
-ARG version=1.0.0-alpha
+ARG version=2.0.0
 ARG os = linux
 
 LABEL maintainer="Hiroki Yamashita" \
