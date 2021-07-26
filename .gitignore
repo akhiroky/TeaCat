@@ -56,4 +56,7 @@ GitHub.sublime-settings
 # worktree folder
 public
 
+#dist folder
+dist
+
 
