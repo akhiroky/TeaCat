@@ -21,17 +21,17 @@ func (c *counter) countShow(r io.Reader, opts *options) (bool, error) {
 
 	if opts.wc.pBytesFlag {
 		c.bytes = len(b)
-		fmt.Printf("%7d bytes", c.bytes)
+		fmt.Printf("%7d bytes\n", c.bytes)
 	}
 
 	if opts.wc.pLinesFlag {
 		c.lines = bytes.Count(b, []byte{'\n'})
-		fmt.Printf("%7d lines", c.lines)
+		fmt.Printf("%7d lines\n", c.lines)
 	}
 
 	if opts.wc.pWordsFlag {
 		c.words = len(bytes.Fields(b))
-		fmt.Printf("%7d words", c.words)
+		fmt.Printf("%7d words\n", c.words)
 	}
 
 	return true, nil
@@ -53,7 +53,7 @@ func wordCount(opts *options, filenames []string) int {
 		if opts.wc.pCharsFlag {
 			data, _ := ioutil.ReadFile(filename)
 			c.chars = utf8.RuneCountInString(string(data))
-			fmt.Printf("%7d chars", c.chars)
+			fmt.Printf("%7d chars\n", c.chars)
 		}
 
 		fp.Close()

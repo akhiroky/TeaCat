@@ -7,14 +7,19 @@ import (
 )
 
 func perform(opts *options, filenames []string) int {
+	var res int
+
 	if opts.wc.pBytesFlag || opts.wc.pLinesFlag || opts.wc.pCharsFlag || opts.wc.pWordsFlag {
-		return wordCount(opts, filenames)
+		res = wordCount(opts, filenames)
 	}
 
 	if opts.cat.printFlag || opts.cat.linePrintFlag {
-		return cat(opts, filenames)
+		res = cat(opts, filenames)
 	}
 
+	if res == 0 {
+		return 0
+	}
 	return 1
 }
 

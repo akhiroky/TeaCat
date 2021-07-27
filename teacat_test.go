@@ -15,7 +15,7 @@ func TestParseArgs(t *testing.T) {
 		{[]string{"teacat", "-h"}, 0},
 		{[]string{"teacat"}, 0}, // required parameters missing
 		{[]string{"teacat", "-w", "teacat.txt"}, 0},
-		{[]string{"teacat", "teacat.go"}, 1},
+		{[]string{"teacat", "teacat.go"}, 0},
 		{[]string{"teacat", "-p", "teacat.txt"}, 1},
 		{[]string{"teacat", "-a"}, 1},
 	}
