@@ -30,4 +30,4 @@ TeaCat [Options]... [FILEs...|DIRs...]
 ARGUMENTS
     FILEs...                    Specifies targets. TeaCat accepts zip/tar/tar.gz/ files.
     DIRs...                     Files in the given directory are as the input files.
-
+```
